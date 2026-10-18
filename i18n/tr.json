@@ -2,6 +2,7 @@
   "choice.start": "Başlayalım!",
   "choice.snooze": "%1 dk sonra",
   "choice.skip": "Geç",
+  "choice.skipIn": "Geç (%1)",
   "button.next": "Sonraki ▸",
   "button.finish": "Bitir",
   "unit.seconds": "%1 sn",

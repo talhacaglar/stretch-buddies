@@ -2,6 +2,7 @@
   "choice.start": "¡Vamos!",
   "choice.snooze": "En %1 min",
   "choice.skip": "Saltar",
+  "choice.skipIn": "Saltar (%1)",
   "button.next": "Siguiente ▸",
   "button.finish": "Listo",
   "unit.seconds": "%1 s",

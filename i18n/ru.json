@@ -2,6 +2,7 @@
   "choice.start": "Поехали!",
   "choice.snooze": "Через %1 мин",
   "choice.skip": "Пропустить",
+  "choice.skipIn": "Пропустить (%1)",
   "button.next": "Дальше ▸",
   "button.finish": "Готово",
   "unit.seconds": "%1 с",

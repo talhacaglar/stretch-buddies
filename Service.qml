@@ -33,6 +33,10 @@ Item {
   property string language: "auto"
   // Away this long (no input) and the sitting clock starts over.
   property int awayMinutes: 5
+  // An unanswered visit passes on its own after this long. Hovering the box
+  // holds the countdown, so it never vanishes while being read or clicked.
+  property int answerSeconds: 15
+  readonly property bool dialogHovered: dialog.hovered
 
   readonly property Catalog catalog: Catalog { language: root.language }
 
@@ -45,6 +49,7 @@ Item {
   property double sittingSinceMs: Date.now()
   property double nowMs: Date.now()
   property double lastTickMs: Date.now()
+  property double callEndsAtMs: 0
 
   property var bag: []
   property var round: []
@@ -58,6 +63,7 @@ Item {
   readonly property real stepMs: current ? current.seconds * 1000 : 1
   readonly property real stepProgress: current ? Math.min(1, Math.max(0, (nowMs - stepStartMs) / stepMs)) : 0
   readonly property int stepSecondsLeft: current ? Math.max(0, Math.ceil((stepMs - (nowMs - stepStartMs)) / 1000)) : 0
+  readonly property int callSecondsLeft: phase === "calling" ? Math.max(0, Math.ceil((callEndsAtMs - nowMs) / 1000)) : 0
   readonly property real remainingMs: paused ? pausedLeftMs : Math.max(0, dueAtMs - nowMs)
   readonly property int remainingMinutes: Math.ceil(remainingMs / 60000)
   readonly property string barPosition: shell && shell.barConfig && shell.barConfig.position
@@ -96,8 +102,8 @@ Item {
     var sat = minutesSitting()
     if (scheduled) setLine(Exercises.line(character, "greeting", Math.max(sat, intervalMinutes)))
     else setLine(Exercises.line(character, sat < intervalMinutes ? "eager" : "greeting", sat))
+    callEndsAtMs = nowMs + answerSeconds * 1000
     phase = "calling"
-    callTimeout.restart()
   }
 
   function start() {
@@ -107,7 +113,6 @@ Item {
     step = 0
     nowMs = Date.now()
     stepStartMs = nowMs
-    callTimeout.stop()
     phase = round.length ? "exercising" : "waiting"
   }
 
@@ -140,6 +145,13 @@ Item {
     say(Exercises.line(character, "skipped", 0), false, 4500)
   }
 
+  // Nobody answered: pass on this break quietly and count down a full
+  // interval again, the same as Skip but without a closing line.
+  function autoSkip() {
+    restart()
+    dismiss()
+  }
+
   function setLine(line) {
     lineKey = line.key
     lineCount = line.count
@@ -147,7 +159,6 @@ Item {
 
   // A closing line, then the character leaves on its own after `holdMs`.
   function say(line, cheer, holdMs) {
-    callTimeout.stop()
     cheering = cheer
     setLine(line)
     phase = "bye"
@@ -157,7 +168,6 @@ Item {
 
   function dismiss() {
     byeTimer.stop()
-    callTimeout.stop()
     phase = "waiting"
     round = []
   }
@@ -219,6 +229,7 @@ Item {
     running: true
     onTriggered: {
       var now = Date.now()
+      var elapsed = now - root.lastTickMs
       // A long gap means the machine slept: that was not sitting.
       if (now - root.lastTickMs > 120000 && root.phase === "waiting") {
         root.sittingSinceMs = now
@@ -228,18 +239,10 @@ Item {
       root.nowMs = now
       if (root.phase === "waiting" && !root.paused && now >= root.dueAtMs) root.callNow(true)
       else if (root.phase === "exercising" && now - root.stepStartMs >= root.stepMs) root.next()
-    }
-  }
-
-  // Ignored for two minutes: let the user work and ask again after a snooze.
-  Timer {
-    id: callTimeout
-    interval: 120000
-    onTriggered: {
-      if (root.phase !== "calling") return
-      root.dismiss()
-      root.dueAtMs = Date.now() + root.snoozeMinutes * 60000
-      root.snoozed = true
+      else if (root.phase === "calling") {
+        if (root.dialogHovered) root.callEndsAtMs += elapsed
+        else if (now >= root.callEndsAtMs) root.autoSkip()
+      }
     }
   }
 

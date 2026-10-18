@@ -7,7 +7,7 @@ Stardew-style stretch breaks for Omarchy. Every 20 minutes a pixel-art buddy pop
 - **Three buddies:** Rigo the Rigatoni, Mochi the Cat and Porcini the Mushroom, each with their own voice
 - **Seven gentle desk stretches:** three per break, drawn from a shuffle bag so rounds don't repeat
 - **Eight languages:** English, Türkçe, Deutsch, Español, Français, Italiano, Русский, हिन्दी
-- **Stays out of your way:** the box never takes keyboard focus, clicks outside it pass through, and an ignored visit snoozes itself after two minutes
+- **Stays out of your way:** the box never takes keyboard focus, clicks outside it pass through, and an unanswered visit skips itself after 15 seconds (hover the box to hold it)
 - **Knows when you're away:** five idle minutes or a suspend restarts the sitting clock
 
 | Mochi mid-stretch | Porcini says hello |

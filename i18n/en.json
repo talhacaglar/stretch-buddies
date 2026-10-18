@@ -2,6 +2,7 @@
   "choice.start": "Let's go!",
   "choice.snooze": "In %1 min",
   "choice.skip": "Skip",
+  "choice.skipIn": "Skip (%1)",
   "button.next": "Next ▸",
   "button.finish": "Done",
   "unit.seconds": "%1 s",

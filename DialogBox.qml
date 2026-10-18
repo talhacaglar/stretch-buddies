@@ -33,6 +33,10 @@ Item {
 
   function t(key) { return catalog ? catalog.t(key) : "" }
 
+  // The service holds the auto-skip countdown while the pointer is here.
+  readonly property bool hovered: hover.hovered
+  HoverHandler { id: hover }
+
   // Typewriter: reveal the message a letter at a time; a click shows it all.
   property int revealed: 0
   readonly property bool typing: revealed < message.length
@@ -235,7 +239,9 @@ Item {
           onClicked: if (service) service.snooze()
         }
         PixelButton {
-          label: root.t("choice.skip")
+          label: service && root.phase === "calling"
+            ? root.t("choice.skipIn").arg(Commons.I18n.formatNumber(service.callSecondsLeft))
+            : root.t("choice.skip")
           unit: root.u
           onClicked: if (service) service.skip()
         }
