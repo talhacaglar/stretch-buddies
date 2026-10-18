@@ -1,0 +1,113 @@
+{
+  "choice.start": "Andiamo!",
+  "choice.snooze": "Tra %1 min",
+  "choice.skip": "Salta",
+  "button.next": "Avanti ▸",
+  "button.finish": "Fatto",
+  "unit.seconds": "%1 s",
+  "bar.minutes": "%1m",
+  "tooltip.coming": {
+    "one": "%1 arriva tra %2 minuto",
+    "other": "%1 arriva tra %2 minuti"
+  },
+  "tooltip.paused": "%1 è in pausa",
+  "tooltip.here": "%1 è qui!",
+  "tooltip.waking": "%1 si sta svegliando…",
+  "tooltip.hints": "Clic: impostazioni · Clic destro: pausa · Clic centrale: stretching ora · Rotella: intervallo",
+  "panel.nextIn": {
+    "one": "Prossimo stretching tra %1 minuto",
+    "other": "Prossimo stretching tra %1 minuti"
+  },
+  "panel.paused": "In pausa",
+  "panel.here": "È ora di allungarsi",
+  "panel.stretchNow": "Stretching ora",
+  "panel.pause": "Pausa",
+  "panel.resume": "Riprendi",
+  "panel.reset": "Riavvia timer",
+  "panel.interval": "Pausa ogni",
+  "panel.snooze": "Posticipa di",
+  "panel.minutes": {
+    "one": "%1 min",
+    "other": "%1 min"
+  },
+  "panel.stretches": "Esercizi per pausa",
+  "panel.character": "Personaggio",
+  "panel.language": "Lingua",
+  "panel.languageAuto": "Come Omarchy",
+  "exercise.neckTilt.title": "Allungamento laterale del collo",
+  "exercise.neckTilt.text": "Porta lentamente l'orecchio destro verso la spalla destra. Tieni le spalle basse.",
+  "exercise.neckTilt.second": "Ora il lato sinistro. Piano, senza forzare.",
+  "exercise.chinTuck.title": "Mento indietro",
+  "exercise.chinTuck.text": "Testa dritta, porta delicatamente il mento indietro, come per fare il doppio mento. Tieni 3 secondi, rilascia, ripeti.",
+  "exercise.shoulderRoll.title": "Rotazione delle spalle",
+  "exercise.shoulderRoll.text": "Solleva le spalle verso le orecchie, poi ruotale indietro e in basso. Cerchi lenti e ampi.",
+  "exercise.scapula.title": "Stringi le scapole",
+  "exercise.scapula.text": "Porta i gomiti indietro e stringi le scapole. Tieni 3 secondi, rilascia.",
+  "exercise.twist.title": "Torsione da seduti",
+  "exercise.twist.text": "Schiena dritta, ruota lentamente il busto verso destra. Aiutati con la sedia.",
+  "exercise.twist.second": "Ora ruota verso sinistra. Continua a respirare.",
+  "exercise.reachUp.title": "Allungati verso l'alto",
+  "exercise.reachUp.text": "Alza le braccia sopra la testa e allungati verso il soffitto. Inspira a fondo, espira lentamente.",
+  "exercise.chestOpen.title": "Apertura del petto",
+  "exercise.chestOpen.text": "Intreccia le mani dietro la testa, apri bene i gomiti e solleva delicatamente il petto.",
+  "rigo.tagline": "Un rigatoni con idee molto chiare sulla postura",
+  "rigo.greeting.1": {
+    "one": "Ciao amico! Sei sulla sedia da %1 minuto. Che ne dici di un minuto di stretching?",
+    "other": "Ciao amico! Sei sulla sedia da %1 minuti. Che ne dici di un minuto di stretching?"
+  },
+  "rigo.greeting.2": "Mamma mia, quella schiena è più storta di un fusillo! Pausa stretching?",
+  "rigo.greeting.3": "Pssst, sono Rigo. Il tuo collo ti ringrazierà. Allunghiamoci!",
+  "rigo.eager.1": "Mi chiami in anticipo? Bravo, amico! Facciamo un minuto di stretching.",
+  "rigo.eager.2": "Oh, stretching di tua iniziativa! Rigo è fiero di te. Cominciamo?",
+  "rigo.cheer.1": {
+    "one": "Bravissimo! Postura perfettamente al dente. Ci vediamo tra %1 minuto.",
+    "other": "Bravissimo! Postura perfettamente al dente. Ci vediamo tra %1 minuti."
+  },
+  "rigo.cheer.2": "Perfetto! La tua schiena è piatta come una sfoglia di lasagna.",
+  "rigo.cheer.3": "Che bello! Le tue spalle ti dicono già grazie.",
+  "rigo.snoozed": {
+    "one": "Va bene, ripasso tra %1 minuto.",
+    "other": "Va bene, ripasso tra %1 minuti."
+  },
+  "rigo.skipped": "Va bene, solo per questa volta. Ma raddrizzati, amico!",
+  "mochi.tagline": "Un gatto tigrato che si stiracchia da professionista",
+  "mochi.greeting.1": {
+    "one": "Mrrp! %1 minuto su quella sedia. I gatti si stiracchiano decine di volte al giorno. Tocca a te!",
+    "other": "Mrrp! %1 minuti su quella sedia. I gatti si stiracchiano decine di volte al giorno. Tocca a te!"
+  },
+  "mochi.greeting.2": "Miao. La tua postura sembra quella di un gatto in una scatola troppo piccola. Ti stiracchi con me?",
+  "mochi.greeting.3": "*ti tocca la mano con la zampetta* È ora di stiracchiarsi, umano.",
+  "mochi.eager.1": "Vieni a stiracchiarti di tua iniziativa? Miao-perfetto!",
+  "mochi.eager.2": "Stretching in anticipo? Mochi approva. Mrrp!",
+  "mochi.cheer.1": {
+    "one": "Miao-perfetto! Ti stiracchi come un gatto professionista. Ci vediamo tra %1 minuto.",
+    "other": "Miao-perfetto! Ti stiracchi come un gatto professionista. Ci vediamo tra %1 minuti."
+  },
+  "mochi.cheer.2": "Miao-raviglioso! Ora ti spetta un pisolino... scherzo, torna al lavoro.",
+  "mochi.cheer.3": "La tua schiena è felice. Mochi è felice. Tutti felici.",
+  "mochi.snoozed": {
+    "one": "Va bene. Tra %1 minuto mi siedo sulla tua tastiera.",
+    "other": "Va bene. Tra %1 minuti mi siedo sulla tua tastiera."
+  },
+  "mochi.skipped": "Uffa. Salti? Mochi se lo ricorderà.",
+  "porcini.tagline": "Un amico del bosco che non ha mai fretta",
+  "porcini.greeting.1": {
+    "one": "Ahh, ciao. %1 minuto di immobilità. Anche i funghi cercano la luce. Iniziamo?",
+    "other": "Ahh, ciao. %1 minuti di immobilità. Anche i funghi cercano la luce. Iniziamo?"
+  },
+  "porcini.greeting.2": "Il bosco è tranquillo. Il momento perfetto per distendere la schiena, piano piano.",
+  "porcini.greeting.3": "Piano, piccolo germoglio. Un minuto di stretching rende felici le radici.",
+  "porcini.eager.1": "Arrivi prima che ti chiami. Saggezza da vecchia quercia.",
+  "porcini.eager.2": "Stretching in anticipo. Il muschio approva. Cominciamo.",
+  "porcini.cheer.1": {
+    "one": "Bellissimo. Tutta la calma di un pino. Torno tra %1 minuto.",
+    "other": "Bellissimo. Tutta la calma di un pino. Torno tra %1 minuti."
+  },
+  "porcini.cheer.2": "Ben fatto. Respira l'aria del bosco... o quella dell'ufficio. Fa lo stesso.",
+  "porcini.cheer.3": "La tua schiena ti ringrazia, e anch'io. Cresci bene.",
+  "porcini.snoozed": {
+    "one": "Nessuna fretta. I funghi sono pazienti. Ci vediamo tra %1 minuto.",
+    "other": "Nessuna fretta. I funghi sono pazienti. Ci vediamo tra %1 minuti."
+  },
+  "porcini.skipped": "Va bene. Ma ricorda: anche un fungo sta dritto."
+}

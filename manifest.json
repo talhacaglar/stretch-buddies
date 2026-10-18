@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.talhacaglar.stretch-buddies",
+  "name": "Stretch Buddies",
+  "version": "0.2.0",
+  "author": "Talha Caglar",
+  "license": "MIT",
+  "description": "Stardew-style stretch buddies for Omarchy: Rigo the Rigatoni, Mochi the Cat or Porcini the Mushroom visits every 20 minutes and leads a one-minute neck and back stretch. Eight languages.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Stretch Buddies",
+    "description": "Countdown to the next stretch break. Click: settings, right click: pause, middle click: stretch now, scroll: interval.",
+    "category": "Productivity",
+    "allowMultiple": false,
+    "defaultSection": "centerEnd",
+    "defaults": {
+      "intervalMinutes": 20,
+      "snoozeMinutes": 5,
+      "exercisesPerBreak": 3,
+      "character": "rigo",
+      "language": "auto"
+    },
+    "schema": [
+      {
+        "key": "intervalMinutes",
+        "type": "integer",
+        "label": "Minutes between stretch breaks",
+        "min": 5,
+        "max": 120,
+        "step": 5,
+        "defaultValue": 20
+      },
+      {
+        "key": "snoozeMinutes",
+        "type": "integer",
+        "label": "Snooze length (minutes)",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 5
+      },
+      {
+        "key": "exercisesPerBreak",
+        "type": "integer",
+        "label": "Stretches per break",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "defaultValue": 3
+      },
+      {
+        "key": "character",
+        "type": "enum",
+        "label": "Character",
+        "options": [
+          "rigo",
+          "mochi",
+          "porcini"
+        ],
+        "defaultValue": "rigo"
+      },
+      {
+        "key": "language",
+        "type": "enum",
+        "label": "Language",
+        "options": [
+          "auto",
+          "en",
+          "tr",
+          "de",
+          "es",
+          "fr",
+          "it",
+          "ru",
+          "hi"
+        ],
+        "defaultValue": "auto"
+      }
+    ]
+  }
+}

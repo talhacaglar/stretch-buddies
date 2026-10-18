@@ -1,0 +1,113 @@
+{
+  "choice.start": "Los geht's!",
+  "choice.snooze": "In %1 Min.",
+  "choice.skip": "Überspringen",
+  "button.next": "Weiter ▸",
+  "button.finish": "Fertig",
+  "unit.seconds": "%1 s",
+  "bar.minutes": "%1m",
+  "tooltip.coming": {
+    "one": "%1 kommt in %2 Minute",
+    "other": "%1 kommt in %2 Minuten"
+  },
+  "tooltip.paused": "%1 pausiert",
+  "tooltip.here": "%1 ist da!",
+  "tooltip.waking": "%1 wacht auf…",
+  "tooltip.hints": "Klick: Einstellungen · Rechtsklick: Pause · Mittelklick: jetzt dehnen · Scrollen: Intervall",
+  "panel.nextIn": {
+    "one": "Nächste Dehnpause in %1 Minute",
+    "other": "Nächste Dehnpause in %1 Minuten"
+  },
+  "panel.paused": "Pausiert",
+  "panel.here": "Jetzt wird gedehnt",
+  "panel.stretchNow": "Jetzt dehnen",
+  "panel.pause": "Pause",
+  "panel.resume": "Fortsetzen",
+  "panel.reset": "Timer neu starten",
+  "panel.interval": "Pause alle",
+  "panel.snooze": "Schlummern für",
+  "panel.minutes": {
+    "one": "%1 Min.",
+    "other": "%1 Min."
+  },
+  "panel.stretches": "Übungen pro Pause",
+  "panel.character": "Figur",
+  "panel.language": "Sprache",
+  "panel.languageAuto": "Wie Omarchy",
+  "exercise.neckTilt.title": "Nacken-Seitdehnung",
+  "exercise.neckTilt.text": "Senke dein rechtes Ohr langsam zur rechten Schulter. Die Schultern bleiben unten.",
+  "exercise.neckTilt.second": "Jetzt die linke Seite. Langsam und sanft.",
+  "exercise.chinTuck.title": "Kinn zurück",
+  "exercise.chinTuck.text": "Kopf gerade, zieh das Kinn sanft zurück, als würdest du ein Doppelkinn machen. 3 Sekunden halten, lösen, wiederholen.",
+  "exercise.shoulderRoll.title": "Schulterkreisen",
+  "exercise.shoulderRoll.text": "Zieh die Schultern zu den Ohren, dann kreise sie nach hinten und unten. Langsam und groß.",
+  "exercise.scapula.title": "Schulterblätter zusammenziehen",
+  "exercise.scapula.text": "Zieh die Ellbogen nach hinten und drück die Schulterblätter zusammen. 3 Sekunden halten, lösen.",
+  "exercise.twist.title": "Drehung im Sitzen",
+  "exercise.twist.text": "Setz dich aufrecht hin und dreh den Oberkörper langsam nach rechts. Halt dich am Stuhl fest.",
+  "exercise.twist.second": "Jetzt nach links drehen. Weiteratmen.",
+  "exercise.reachUp.title": "Nach oben strecken",
+  "exercise.reachUp.text": "Heb die Arme über den Kopf und streck dich zur Decke. Tief einatmen, langsam ausatmen.",
+  "exercise.chestOpen.title": "Brustöffner",
+  "exercise.chestOpen.text": "Verschränk die Hände hinter dem Kopf, öffne die Ellbogen weit und heb die Brust sanft an.",
+  "rigo.tagline": "Rigatoni mit klarer Meinung zur Haltung",
+  "rigo.greeting.1": {
+    "one": "Ciao amico! Du sitzt seit %1 Minute. Wie wär's mit einer Minute Dehnen?",
+    "other": "Ciao amico! Du sitzt seit %1 Minuten. Wie wär's mit einer Minute Dehnen?"
+  },
+  "rigo.greeting.2": "Mamma mia, dein Rücken kringelt sich wie Fusilli! Kurze Dehnpause?",
+  "rigo.greeting.3": "Pssst, hier ist Rigo. Dein Nacken wird es dir danken. Lass uns dehnen!",
+  "rigo.eager.1": "Du rufst mich früher? Bravo, amico! Eine Minute Dehnen, los geht's.",
+  "rigo.eager.2": "Oh, Dehnen aus freien Stücken! Rigo ist stolz. Sollen wir anfangen?",
+  "rigo.cheer.1": {
+    "one": "Bravissimo! Deine Haltung ist perfekt al dente. Bis in %1 Minute.",
+    "other": "Bravissimo! Deine Haltung ist perfekt al dente. Bis in %1 Minuten."
+  },
+  "rigo.cheer.2": "Perfetto! Dein Rücken ist flach wie ein Lasagneblatt.",
+  "rigo.cheer.3": "Che bello! Deine Schultern sagen schon grazie.",
+  "rigo.snoozed": {
+    "one": "Va bene, ich komme in %1 Minute wieder.",
+    "other": "Va bene, ich komme in %1 Minuten wieder."
+  },
+  "rigo.skipped": "Na gut, dieses eine Mal. Aber sitz gerade, amico!",
+  "mochi.tagline": "Eine Tigerkatze, die sich professionell dehnt",
+  "mochi.greeting.1": {
+    "one": "Mrrp! Seit %1 Minute auf dem Stuhl. Katzen dehnen sich dutzende Male am Tag. Du bist dran!",
+    "other": "Mrrp! Seit %1 Minuten auf dem Stuhl. Katzen dehnen sich dutzende Male am Tag. Du bist dran!"
+  },
+  "mochi.greeting.2": "Miau. Deine Haltung erinnert an eine Katze in einem zu kleinen Karton. Dehnst du dich mit mir?",
+  "mochi.greeting.3": "*tippt dir mit der Pfote auf die Hand* Zeit zum Dehnen, Mensch.",
+  "mochi.eager.1": "Du kommst freiwillig zum Dehnen? Schnurr-fekt!",
+  "mochi.eager.2": "Früh dehnen? Mochi ist einverstanden. Mrrp!",
+  "mochi.cheer.1": {
+    "one": "Schnurr-fekt! Du dehnst dich wie eine Profi-Katze. Bis in %1 Minute.",
+    "other": "Schnurr-fekt! Du dehnst dich wie eine Profi-Katze. Bis in %1 Minuten."
+  },
+  "mochi.cheer.2": "Miau-ßergewöhnlich! Jetzt hast du dir ein Nickerchen verdient... nur Spaß, zurück an die Arbeit.",
+  "mochi.cheer.3": "Deine Wirbelsäule ist glücklich. Mochi ist glücklich. Alle sind glücklich.",
+  "mochi.snoozed": {
+    "one": "Na gut. In %1 Minute sitze ich auf deiner Tastatur.",
+    "other": "Na gut. In %1 Minuten sitze ich auf deiner Tastatur."
+  },
+  "mochi.skipped": "Hmpf. Überspringen? Mochi wird sich das merken.",
+  "porcini.tagline": "Ein ruhiger Waldfreund, der nie hetzt",
+  "porcini.greeting.1": {
+    "one": "Ahh, hallo. %1 Minute Stillstand. Selbst Pilze strecken sich zum Licht. Wollen wir?",
+    "other": "Ahh, hallo. %1 Minuten Stillstand. Selbst Pilze strecken sich zum Licht. Wollen wir?"
+  },
+  "porcini.greeting.2": "Der Wald ist still. Ein perfekter Moment, um die Wirbelsäule langsam zu entfalten.",
+  "porcini.greeting.3": "Langsam, kleiner Spross. Eine Minute Dehnen hält die Wurzeln glücklich.",
+  "porcini.eager.1": "Du kommst, bevor ich rufe. Weise wie eine alte Eiche.",
+  "porcini.eager.2": "Früh gedehnt. Das Moos ist einverstanden. Lass uns beginnen.",
+  "porcini.cheer.1": {
+    "one": "Schön. Die ganze Ruhe einer Kiefer. Ich komme in %1 Minute wieder.",
+    "other": "Schön. Die ganze Ruhe einer Kiefer. Ich komme in %1 Minuten wieder."
+  },
+  "porcini.cheer.2": "Gut gemacht. Atme die Waldluft ein... oder die Büroluft. Egal.",
+  "porcini.cheer.3": "Dein Rücken dankt dir, und ich auch. Wachse gut.",
+  "porcini.snoozed": {
+    "one": "Keine Eile. Pilze sind geduldig. Bis in %1 Minute.",
+    "other": "Keine Eile. Pilze sind geduldig. Bis in %1 Minuten."
+  },
+  "porcini.skipped": "Nun gut. Aber denk dran: Selbst ein Pilz steht gerade."
+}

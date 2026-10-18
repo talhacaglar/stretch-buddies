@@ -1,0 +1,113 @@
+{
+  "choice.start": "Let's go!",
+  "choice.snooze": "In %1 min",
+  "choice.skip": "Skip",
+  "button.next": "Next ▸",
+  "button.finish": "Done",
+  "unit.seconds": "%1 s",
+  "bar.minutes": "%1m",
+  "tooltip.coming": {
+    "one": "%1 visits in %2 minute",
+    "other": "%1 visits in %2 minutes"
+  },
+  "tooltip.paused": "%1 is paused",
+  "tooltip.here": "%1 is here!",
+  "tooltip.waking": "%1 is waking up…",
+  "tooltip.hints": "Click: settings · Right click: pause · Middle click: stretch now · Scroll: interval",
+  "panel.nextIn": {
+    "one": "Next stretch in %1 minute",
+    "other": "Next stretch in %1 minutes"
+  },
+  "panel.paused": "Paused",
+  "panel.here": "Stretching now",
+  "panel.stretchNow": "Stretch now",
+  "panel.pause": "Pause",
+  "panel.resume": "Resume",
+  "panel.reset": "Restart timer",
+  "panel.interval": "Break every",
+  "panel.snooze": "Snooze for",
+  "panel.minutes": {
+    "one": "%1 min",
+    "other": "%1 min"
+  },
+  "panel.stretches": "Stretches per break",
+  "panel.character": "Character",
+  "panel.language": "Language",
+  "panel.languageAuto": "Same as Omarchy",
+  "exercise.neckTilt.title": "Neck side stretch",
+  "exercise.neckTilt.text": "Slowly lower your right ear toward your right shoulder. Keep your shoulders down.",
+  "exercise.neckTilt.second": "Now the left side. Slow and gentle.",
+  "exercise.chinTuck.title": "Chin tuck",
+  "exercise.chinTuck.text": "Head level, gently pull your chin straight back, like making a double chin. Hold 3 seconds, release, repeat.",
+  "exercise.shoulderRoll.title": "Shoulder rolls",
+  "exercise.shoulderRoll.text": "Lift your shoulders toward your ears, then roll them back and down. Slow, big circles.",
+  "exercise.scapula.title": "Shoulder blade squeeze",
+  "exercise.scapula.text": "Pull your elbows back and squeeze your shoulder blades together. Hold 3 seconds, release.",
+  "exercise.twist.title": "Seated twist",
+  "exercise.twist.text": "Sit tall and slowly turn your upper body to the right. Use the chair for support.",
+  "exercise.twist.second": "Now turn to the left. Keep breathing.",
+  "exercise.reachUp.title": "Reach up",
+  "exercise.reachUp.text": "Raise your arms overhead and reach for the ceiling. Breathe in deeply, then slowly out.",
+  "exercise.chestOpen.title": "Chest opener",
+  "exercise.chestOpen.text": "Clasp your hands behind your head, open your elbows wide and gently lift your chest.",
+  "rigo.tagline": "Rigatoni with strong opinions about posture",
+  "rigo.greeting.1": {
+    "one": "Ciao amico! You've been sitting for %1 minute. How about a one-minute stretch?",
+    "other": "Ciao amico! You've been sitting for %1 minutes. How about a one-minute stretch?"
+  },
+  "rigo.greeting.2": "Mamma mia, that back is curling like a fusilli! Quick stretch break?",
+  "rigo.greeting.3": "Pssst, it's Rigo. Your neck will thank you. Let's stretch!",
+  "rigo.eager.1": "Calling me early? Bravo, amico! Let's do a one-minute stretch.",
+  "rigo.eager.2": "Ooh, stretching on your own initiative! Rigo is proud. Shall we start?",
+  "rigo.cheer.1": {
+    "one": "Bravissimo! That posture is perfectly al dente. See you in %1 minute.",
+    "other": "Bravissimo! That posture is perfectly al dente. See you in %1 minutes."
+  },
+  "rigo.cheer.2": "Perfetto! Your back is as flat as a lasagna sheet.",
+  "rigo.cheer.3": "Che bello! Your shoulders already say grazie.",
+  "rigo.snoozed": {
+    "one": "Va bene, I'll come back in %1 minute.",
+    "other": "Va bene, I'll come back in %1 minutes."
+  },
+  "rigo.skipped": "Okay, just this once. But sit up straight, amico!",
+  "mochi.tagline": "A tabby who stretches professionally",
+  "mochi.greeting.1": {
+    "one": "Mrrp! %1 minute in that chair. Cats stretch dozens of times a day. Your turn!",
+    "other": "Mrrp! %1 minutes in that chair. Cats stretch dozens of times a day. Your turn!"
+  },
+  "mochi.greeting.2": "Meow. Your posture looks like a cat in a box that's too small. Stretch with me?",
+  "mochi.greeting.3": "*taps your hand with a paw* It's stretching time, human.",
+  "mochi.eager.1": "You came to stretch on your own? Purr-fect timing!",
+  "mochi.eager.2": "An early stretch? Mochi approves. Mrrp!",
+  "mochi.cheer.1": {
+    "one": "Purr-fect! You stretch like a pro cat. See you in %1 minute.",
+    "other": "Purr-fect! You stretch like a pro cat. See you in %1 minutes."
+  },
+  "mochi.cheer.2": "Meow-velous! Now you've earned a nap... just kidding, back to work.",
+  "mochi.cheer.3": "Your spine is happy. Mochi is happy. Everyone is happy.",
+  "mochi.snoozed": {
+    "one": "Fine. I'll be sitting on your keyboard in %1 minute.",
+    "other": "Fine. I'll be sitting on your keyboard in %1 minutes."
+  },
+  "mochi.skipped": "Hmph. Skipping? Mochi will remember this.",
+  "porcini.tagline": "A calm forest friend who never rushes",
+  "porcini.greeting.1": {
+    "one": "Ahh, hello. %1 minute of stillness. Even mushrooms reach for the light. Shall we?",
+    "other": "Ahh, hello. %1 minutes of stillness. Even mushrooms reach for the light. Shall we?"
+  },
+  "porcini.greeting.2": "The forest is quiet. A perfect moment to unfold your spine, slowly.",
+  "porcini.greeting.3": "Slow down, little sprout. A minute of stretching keeps the roots happy.",
+  "porcini.eager.1": "You came before I called. Wise, like an old oak.",
+  "porcini.eager.2": "An early stretch. The moss approves. Let us begin.",
+  "porcini.cheer.1": {
+    "one": "Lovely. All the calm of a pine tree. I'll return in %1 minute.",
+    "other": "Lovely. All the calm of a pine tree. I'll return in %1 minutes."
+  },
+  "porcini.cheer.2": "Well done. Breathe in the forest air... or the office air. Either way.",
+  "porcini.cheer.3": "Your back thanks you, and so do I. Grow well.",
+  "porcini.snoozed": {
+    "one": "No hurry. Mushrooms are patient. See you in %1 minute.",
+    "other": "No hurry. Mushrooms are patient. See you in %1 minutes."
+  },
+  "porcini.skipped": "Very well. But remember: even a mushroom stands up straight."
+}

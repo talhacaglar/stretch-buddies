@@ -1,0 +1,113 @@
+{
+  "choice.start": "C'est parti !",
+  "choice.snooze": "Dans %1 min",
+  "choice.skip": "Passer",
+  "button.next": "Suivant ▸",
+  "button.finish": "Terminé",
+  "unit.seconds": "%1 s",
+  "bar.minutes": "%1m",
+  "tooltip.coming": {
+    "one": "%1 arrive dans %2 minute",
+    "other": "%1 arrive dans %2 minutes"
+  },
+  "tooltip.paused": "%1 est en pause",
+  "tooltip.here": "%1 est là !",
+  "tooltip.waking": "%1 se réveille…",
+  "tooltip.hints": "Clic : réglages · Clic droit : pause · Clic milieu : s'étirer · Molette : intervalle",
+  "panel.nextIn": {
+    "one": "Prochain étirement dans %1 minute",
+    "other": "Prochain étirement dans %1 minutes"
+  },
+  "panel.paused": "En pause",
+  "panel.here": "C'est l'heure de s'étirer",
+  "panel.stretchNow": "S'étirer maintenant",
+  "panel.pause": "Pause",
+  "panel.resume": "Reprendre",
+  "panel.reset": "Relancer le minuteur",
+  "panel.interval": "Pause toutes les",
+  "panel.snooze": "Reporter de",
+  "panel.minutes": {
+    "one": "%1 min",
+    "other": "%1 min"
+  },
+  "panel.stretches": "Étirements par pause",
+  "panel.character": "Personnage",
+  "panel.language": "Langue",
+  "panel.languageAuto": "Comme Omarchy",
+  "exercise.neckTilt.title": "Étirement latéral du cou",
+  "exercise.neckTilt.text": "Descends lentement l'oreille droite vers l'épaule droite. Garde les épaules basses.",
+  "exercise.neckTilt.second": "Maintenant le côté gauche. Lentement, en douceur.",
+  "exercise.chinTuck.title": "Rentrer le menton",
+  "exercise.chinTuck.text": "Tête droite, recule doucement le menton, comme pour faire un double menton. Tiens 3 secondes, relâche, recommence.",
+  "exercise.shoulderRoll.title": "Rotations d'épaules",
+  "exercise.shoulderRoll.text": "Monte les épaules vers les oreilles, puis fais-les rouler vers l'arrière et vers le bas. Grands cercles lents.",
+  "exercise.scapula.title": "Serrer les omoplates",
+  "exercise.scapula.text": "Tire les coudes vers l'arrière et serre les omoplates. Tiens 3 secondes, relâche.",
+  "exercise.twist.title": "Torsion assise",
+  "exercise.twist.text": "Dos bien droit, tourne lentement le buste vers la droite. Aide-toi de la chaise.",
+  "exercise.twist.second": "Maintenant vers la gauche. Continue de respirer.",
+  "exercise.reachUp.title": "S'étirer vers le haut",
+  "exercise.reachUp.text": "Lève les bras au-dessus de la tête et tends-toi vers le plafond. Inspire profondément, expire lentement.",
+  "exercise.chestOpen.title": "Ouverture de la poitrine",
+  "exercise.chestOpen.text": "Croise les mains derrière la tête, ouvre grand les coudes et soulève doucement la poitrine.",
+  "rigo.tagline": "Un rigatoni très attaché à ta posture",
+  "rigo.greeting.1": {
+    "one": "Ciao amico ! Ça fait %1 minute que tu es sur ta chaise. Une minute d'étirements ?",
+    "other": "Ciao amico ! Ça fait %1 minutes que tu es sur ta chaise. Une minute d'étirements ?"
+  },
+  "rigo.greeting.2": "Mamma mia, ce dos est plus tordu qu'un fusilli ! Petite pause étirements ?",
+  "rigo.greeting.3": "Pssst, c'est Rigo. Ta nuque te dira merci. On s'étire !",
+  "rigo.eager.1": "Tu m'appelles en avance ? Bravo, amico ! Une minute d'étirements.",
+  "rigo.eager.2": "Oh, des étirements de ton plein gré ! Rigo est fier. On commence ?",
+  "rigo.cheer.1": {
+    "one": "Bravissimo ! Cette posture est parfaitement al dente. À dans %1 minute.",
+    "other": "Bravissimo ! Cette posture est parfaitement al dente. À dans %1 minutes."
+  },
+  "rigo.cheer.2": "Perfetto ! Ton dos est aussi plat qu'une feuille de lasagne.",
+  "rigo.cheer.3": "Che bello ! Tes épaules disent déjà grazie.",
+  "rigo.snoozed": {
+    "one": "Va bene, je repasse dans %1 minute.",
+    "other": "Va bene, je repasse dans %1 minutes."
+  },
+  "rigo.skipped": "D'accord, pour cette fois. Mais redresse-toi, amico !",
+  "mochi.tagline": "Un chat tigré qui s'étire en professionnel",
+  "mochi.greeting.1": {
+    "one": "Mrrp ! %1 minute sur cette chaise. Les chats s'étirent des dizaines de fois par jour. À toi !",
+    "other": "Mrrp ! %1 minutes sur cette chaise. Les chats s'étirent des dizaines de fois par jour. À toi !"
+  },
+  "mochi.greeting.2": "Miaou. Ta posture ressemble à un chat dans un carton trop petit. On s'étire ensemble ?",
+  "mochi.greeting.3": "*te tapote la main avec sa patte* C'est l'heure de s'étirer, humain.",
+  "mochi.eager.1": "Tu viens t'étirer de toi-même ? Ronron-parfait !",
+  "mochi.eager.2": "Des étirements en avance ? Mochi approuve. Mrrp !",
+  "mochi.cheer.1": {
+    "one": "Ronron-parfait ! Tu t'étires comme un chat pro. À dans %1 minute.",
+    "other": "Ronron-parfait ! Tu t'étires comme un chat pro. À dans %1 minutes."
+  },
+  "mochi.cheer.2": "Miaou-gnifique ! Tu as mérité une sieste... je plaisante, au boulot.",
+  "mochi.cheer.3": "Ta colonne est contente. Mochi est content. Tout le monde est content.",
+  "mochi.snoozed": {
+    "one": "Bon. Dans %1 minute, je m'assois sur ton clavier.",
+    "other": "Bon. Dans %1 minutes, je m'assois sur ton clavier."
+  },
+  "mochi.skipped": "Pff. Tu passes ? Mochi s'en souviendra.",
+  "porcini.tagline": "Un ami de la forêt qui ne se presse jamais",
+  "porcini.greeting.1": {
+    "one": "Ahh, bonjour. %1 minute d'immobilité. Même les champignons cherchent la lumière. On y va ?",
+    "other": "Ahh, bonjour. %1 minutes d'immobilité. Même les champignons cherchent la lumière. On y va ?"
+  },
+  "porcini.greeting.2": "La forêt est calme. Le moment idéal pour déplier ta colonne, doucement.",
+  "porcini.greeting.3": "Doucement, petite pousse. Une minute d'étirements garde les racines heureuses.",
+  "porcini.eager.1": "Tu arrives avant mon appel. Sage comme un vieux chêne.",
+  "porcini.eager.2": "Des étirements en avance. La mousse approuve. Commençons.",
+  "porcini.cheer.1": {
+    "one": "Très bien. Tout le calme d'un pin. Je reviens dans %1 minute.",
+    "other": "Très bien. Tout le calme d'un pin. Je reviens dans %1 minutes."
+  },
+  "porcini.cheer.2": "Bravo. Respire l'air de la forêt... ou celui du bureau. Peu importe.",
+  "porcini.cheer.3": "Ton dos te remercie, et moi aussi. Pousse bien.",
+  "porcini.snoozed": {
+    "one": "Rien ne presse. Les champignons sont patients. À dans %1 minute.",
+    "other": "Rien ne presse. Les champignons sont patients. À dans %1 minutes."
+  },
+  "porcini.skipped": "Très bien. Mais souviens-toi : même un champignon se tient droit."
+}
