@@ -20,7 +20,7 @@
     "description": "Countdown to the next stretch break. Click: settings, right click: pause, middle click: stretch now, scroll: interval.",
     "category": "Productivity",
     "allowMultiple": false,
-    "defaultSection": "centerEnd",
+    "defaultSection": "center",
     "defaults": {
       "intervalMinutes": 20,
       "snoozeMinutes": 5,
