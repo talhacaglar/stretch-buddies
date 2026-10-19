@@ -28,10 +28,14 @@ Item {
       return catalog.t("exercise." + exercise.id + (exercise.second && stepProgress >= 0.5 ? ".second" : ".text"))
     if (!service.lineKey) return ""
     if (service.lineCount < 0) return catalog.t(service.lineKey)
-    return catalog.tn(service.lineKey, service.lineCount).arg(Commons.I18n.formatNumber(service.lineCount))
+    return catalog.tn(service.lineKey, service.lineCount).arg(root.num(service.lineCount))
   }
 
   function t(key) { return catalog ? catalog.t(key) : "" }
+  function num(n) { return catalog ? catalog.formatNumber(n) : String(n) }
+
+  // Style.reduceMotion only exists on newer shells; undefined means motion on.
+  readonly property bool reduceMotion: Style["reduceMotion"] === true
 
   // The service holds the auto-skip countdown while the pointer is here.
   readonly property bool hovered: hover.hovered
@@ -40,7 +44,7 @@ Item {
   // Typewriter: reveal the message a letter at a time; a click shows it all.
   property int revealed: 0
   readonly property bool typing: revealed < message.length
-  onMessageChanged: revealed = Style.reduceMotion ? message.length : 0
+  onMessageChanged: revealed = root.reduceMotion ? message.length : 0
 
   // Slide up and fade in each time the character appears.
   property real enter: 0
@@ -55,7 +59,7 @@ Item {
     running: false
     from: 0
     to: 1
-    duration: Style.duration(260)
+    duration: root.reduceMotion ? 0 : 260
     easing.type: Easing.OutBack
   }
   opacity: Math.min(1, enter * 1.6)
@@ -234,13 +238,13 @@ Item {
         }
         PixelButton {
           label: service && root.catalog
-            ? root.catalog.tn("choice.snooze", service.snoozeMinutes).arg(Commons.I18n.formatNumber(service.snoozeMinutes)) : ""
+            ? root.catalog.tn("choice.snooze", service.snoozeMinutes).arg(root.num(service.snoozeMinutes)) : ""
           unit: root.u
           onClicked: if (service) service.snooze()
         }
         PixelButton {
           label: service && root.phase === "calling"
-            ? root.t("choice.skipIn").arg(Commons.I18n.formatNumber(service.callSecondsLeft))
+            ? root.t("choice.skipIn").arg(root.num(service.callSecondsLeft))
             : root.t("choice.skip")
           unit: root.u
           onClicked: if (service) service.skip()
@@ -282,7 +286,7 @@ Item {
             }
 
             Behavior on width {
-              enabled: !Style.reduceMotion
+              enabled: !root.reduceMotion
               NumberAnimation { duration: 260 }
             }
           }
@@ -294,7 +298,7 @@ Item {
           anchors.rightMargin: root.u * 3
           anchors.verticalCenter: parent.verticalCenter
           textFormat: Text.PlainText
-          text: service ? root.t("unit.seconds").arg(Commons.I18n.formatNumber(service.stepSecondsLeft)) : ""
+          text: service ? root.t("unit.seconds").arg(root.num(service.stepSecondsLeft)) : ""
           color: root.inkSoft
           font.family: root.fontFamily
           font.pixelSize: Style.font.title + 2
@@ -329,7 +333,7 @@ Item {
         }
 
         SequentialAnimation {
-          running: arrow.visible && !Style.reduceMotion
+          running: arrow.visible && !root.reduceMotion
           loops: Animation.Infinite
           NumberAnimation { target: bounce; property: "offset"; to: root.u * 2; duration: 260; easing.type: Easing.OutQuad }
           NumberAnimation { target: bounce; property: "offset"; to: 0; duration: 260; easing.type: Easing.InQuad }

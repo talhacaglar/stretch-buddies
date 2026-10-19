@@ -41,7 +41,7 @@ Item {
 
   scale: hot && !mouse.pressed ? 1.04 : 1
   Behavior on scale {
-    enabled: !Style.reduceMotion
+    enabled: Style["reduceMotion"] !== true
     NumberAnimation { duration: 90 }
   }
 

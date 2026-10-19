@@ -3,7 +3,7 @@ import Quickshell
 import Quickshell.Io
 import qs.Commons
 import qs.Commons as Commons
-import qs.Ui
+import qs.Ui as Ui
 import "Art.js" as Art
 
 // The bar button: the chosen character's pixel head and the minutes until
@@ -13,7 +13,10 @@ import "Art.js" as Art
 // Replacement bars give widgets no access to plugin services, so this reads
 // the state file the service keeps in $XDG_RUNTIME_DIR and sends commands
 // over IPC. Between writes the countdown is computed locally from `dueAtMs`.
-BarWidget {
+//
+// The base type is qualified on purpose: this file is itself named
+// BarWidget.qml, so an unqualified `BarWidget` would resolve to this file.
+Ui.BarWidget {
   id: root
   moduleName: "io.github.talhacaglar.stretch-buddies"
 
@@ -104,7 +107,7 @@ BarWidget {
 
   function label() {
     if (!state || visiting || vertical) return ""
-    return paused ? "‖" : strings.t("bar.minutes").arg(Commons.I18n.formatNumber(remainingMinutes))
+    return paused ? "‖" : strings.t("bar.minutes").arg(strings.formatNumber(remainingMinutes))
   }
 
   function tooltip() {
@@ -112,7 +115,7 @@ BarWidget {
     if (!state) when = strings.t("tooltip.waking").arg(characterName)
     else if (visiting) when = strings.t("tooltip.here").arg(characterName)
     else if (paused) when = strings.t("tooltip.paused").arg(characterName)
-    else when = strings.tn("tooltip.coming", remainingMinutes).arg(characterName).arg(Commons.I18n.formatNumber(remainingMinutes))
+    else when = strings.tn("tooltip.coming", remainingMinutes).arg(characterName).arg(strings.formatNumber(remainingMinutes))
     return when + "\n" + strings.t("tooltip.hints")
   }
 
@@ -197,44 +200,100 @@ BarWidget {
     }
   }
 
-  BarIconButton {
+  // The button is built from plain items rather than BarIconButton, whose
+  // label support only exists on newer shells. It registers as a click
+  // target and uses the bar's shared tooltip, as WidgetButton does.
+  Item {
     id: button
-    anchors.fill: parent
-    bar: root.bar
-    active: root.visiting
-    dimmed: root.paused
-    labelText: root.label()
-    slotSize: Style.bar.iconSlot + (labelText !== "" ? labelMetrics.advanceWidth + Style.space(6) : 0)
-    tooltipText: root.tooltip()
 
-    TextMetrics {
-      id: labelMetrics
-      text: button.labelText
-      font.family: button.fontFamily
-      font.pixelSize: Style.font.body
+    readonly property color fg: root.bar && root.bar.barForeground ? root.bar.barForeground : Commons.Color.foreground
+    readonly property color urgent: root.bar && root.bar.urgent ? root.bar.urgent : Commons.Color.urgent
+    readonly property int unit: Math.max(1, Math.floor((root.barSize - Style.space(10)) / Art.ICON_H))
+    property var registeredBar: null
+
+    function syncClickRegistration() {
+      if (registeredBar && registeredBar.unregisterClickTarget) registeredBar.unregisterClickTarget(button)
+      registeredBar = root.bar
+      if (registeredBar && registeredBar.registerClickTarget) registeredBar.registerClickTarget(button)
     }
 
-    iconComponent: Component {
+    function hideTooltip() {
+      if (root.bar && root.bar.hideTooltip) root.bar.hideTooltip(button)
+    }
+
+    anchors.fill: parent
+    implicitWidth: root.vertical ? root.barSize : content.width + Style.space(14)
+    implicitHeight: root.vertical ? content.height + Style.space(12) : root.barSize
+
+    Component.onCompleted: syncClickRegistration()
+    Component.onDestruction: {
+      hideTooltip()
+      if (registeredBar && registeredBar.unregisterClickTarget) registeredBar.unregisterClickTarget(button)
+    }
+    Connections {
+      target: root
+      function onBarChanged() { button.syncClickRegistration() }
+    }
+
+    Rectangle {
+      anchors.centerIn: parent
+      width: parent.width - Style.space(2)
+      height: Math.min(parent.height, root.barSize) - Style.space(6)
+      radius: Style.space(4)
+      color: root.visiting ? Util.alpha(button.urgent, 0.28)
+        : mouse.containsMouse ? Util.alpha(button.fg, 0.10) : "transparent"
+    }
+
+    Grid {
+      id: content
+      anchors.centerIn: parent
+      columns: root.vertical ? 1 : 2
+      spacing: Style.space(5)
+      verticalItemAlignment: Grid.AlignVCenter
+      horizontalItemAlignment: Grid.AlignHCenter
+      opacity: root.paused ? 0.55 : 1
+
       Canvas {
-        readonly property int unit: Math.max(1, Math.round(button.iconSize / Art.ICON_H))
+        id: icon
         readonly property string who: root.characterId
-        width: Art.ICON_W * unit
-        height: Art.ICON_H * unit
+        width: Art.ICON_W * button.unit
+        height: Art.ICON_H * button.unit
         antialiasing: false
         onWhoChanged: requestPaint()
+        onWidthChanged: requestPaint()
         onPaint: {
           var ctx = getContext("2d")
           ctx.reset()
-          Art.drawIcon(ctx, unit, 0, 0, who)
+          Art.drawIcon(ctx, button.unit, 0, 0, who)
         }
+      }
+
+      Text {
+        id: label
+        visible: text !== ""
+        textFormat: Text.PlainText
+        text: root.label()
+        color: button.fg
+        font.family: root.bar && root.bar.fontFamily ? root.bar.fontFamily : Style.font.family
+        font.pixelSize: Style.font.body
       }
     }
 
-    onPressed: function(b) {
-      if (b === Qt.RightButton) root.togglePause()
-      else if (b === Qt.MiddleButton) root.stretchNow()
-      else root.toggle()
+    MouseArea {
+      id: mouse
+      anchors.fill: parent
+      acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+      hoverEnabled: true
+      cursorShape: Qt.PointingHandCursor
+      onEntered: if (root.bar && root.bar.showTooltip) root.bar.showTooltip(button, root.tooltip())
+      onExited: button.hideTooltip()
+      onClicked: function(event) {
+        button.hideTooltip()
+        if (event.button === Qt.RightButton) root.togglePause()
+        else if (event.button === Qt.MiddleButton) root.stretchNow()
+        else root.toggle()
+      }
+      onWheel: function(wheel) { root.nudgeInterval(wheel.angleDelta.y > 0 ? 5 : -5) }
     }
-    onWheelMoved: function(delta) { root.nudgeInterval(delta > 0 ? 5 : -5) }
   }
 }

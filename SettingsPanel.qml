@@ -33,13 +33,14 @@ Ui.Panel {
   readonly property var cast: Art.character(characterId)
 
   function t(key) { return strings ? strings.t(key) : "" }
-  function minutes(n) { return strings ? strings.tn("panel.minutes", n).arg(Commons.I18n.formatNumber(n)) : "" }
+  function num(n) { return strings ? strings.formatNumber(n) : String(n) }
+  function minutes(n) { return strings ? strings.tn("panel.minutes", n).arg(root.num(n)) : "" }
 
   function statusText() {
     if (!host || !host.state) return ""
     if (host.visiting) return t("panel.here")
     if (host.paused) return t("panel.paused")
-    return strings.tn("panel.nextIn", host.remainingMinutes).arg(Commons.I18n.formatNumber(host.remainingMinutes))
+    return strings.tn("panel.nextIn", host.remainingMinutes).arg(root.num(host.remainingMinutes))
   }
 
   function openFromHotkey() { root.controller.show() }
@@ -62,7 +63,7 @@ Ui.Panel {
     centerOnBar: true
     focusTarget: keys
     contentWidth: panel.fittedContentWidth(Style.space(400))
-    contentHeight: panel.fittedContentHeight(content.implicitHeight)
+    contentHeight: panel.fittedContentHeight(panelContent.implicitHeight)
 
     PanelKeyCatcher {
       id: keys
@@ -83,13 +84,13 @@ Ui.Panel {
         id: scroller
         anchors.fill: parent
         contentWidth: width
-        contentHeight: content.implicitHeight
+        contentHeight: panelContent.implicitHeight
         clip: true
         boundsBehavior: Flickable.StopAtBounds
         interactive: contentHeight > height
 
         Column {
-          id: content
+          id: panelContent
           width: scroller.width
           spacing: Style.space(14)
 
@@ -206,7 +207,7 @@ Ui.Panel {
           Stepper {
             label: root.t("panel.stretches")
             value: host ? host.exercisesPerBreak : 3
-            display: Commons.I18n.formatNumber(value)
+            display: root.num(value)
             step: 1
             minimum: 1
             maximum: 5

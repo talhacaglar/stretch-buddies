@@ -1,14 +1,14 @@
 import QtQuick
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
 import qs.Commons
-import qs.Ui
 import "Exercises.js" as Exercises
 import "Art.js" as Art
 
-// Stretch Buddies: after `intervalMinutes` of
-// sitting the chosen character (Rigo, Mochi or Porcini) pops up at the bottom of the screen in a
+// Stretch Buddies: after `intervalMinutes` of sitting the chosen character
+// (Rigo, Mochi or Porcini) pops up at the bottom of the screen in a
 // Stardew-style dialogue box and leads a short round of neck and back
 // stretches.
 //
@@ -268,14 +268,44 @@ Item {
     }
   }
 
-  OverlayWindow {
+  // A full-screen overlay on the focused monitor, built from plain
+  // Quickshell types so it works on every Omarchy 4 shell. It never takes
+  // keyboard focus, and its mask lets clicks through everywhere but the box.
+  PanelWindow {
     id: window
-    shown: root.phase !== "waiting"
-    shownKeyboardFocus: WlrKeyboardFocus.None
-    WlrLayershell.namespace: "stretch-buddies"
 
-    // Click-through everywhere except the dialogue box itself.
+    readonly property bool shown: root.phase !== "waiting"
+    property var targetScreen: null
+
+    function focusedScreen() {
+      var monitor = Hyprland.focusedMonitor
+      var name = monitor ? String(monitor.name || "") : ""
+      for (var i = 0; i < Quickshell.screens.length; i++)
+        if (Quickshell.screens[i].name === name) return Quickshell.screens[i]
+      return Quickshell.screens.length > 0 ? Quickshell.screens[0] : null
+    }
+
+    onShownChanged: if (shown) targetScreen = focusedScreen()
+
+    visible: shown && !!targetScreen
+    screen: targetScreen
+    anchors { top: true; bottom: true; left: true; right: true }
+    color: "transparent"
+    exclusionMode: ExclusionMode.Ignore
+    WlrLayershell.namespace: "stretch-buddies"
+    WlrLayershell.layer: WlrLayer.Overlay
+    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+
     mask: Region { item: dialog }
+
+    // A monitor unplugged mid-visit: move to whichever one has focus now.
+    Connections {
+      target: Quickshell
+      function onScreensChanged() {
+        if (window.shown && Quickshell.screens.indexOf(window.targetScreen) < 0)
+          window.targetScreen = window.focusedScreen()
+      }
+    }
 
     DialogBox {
       id: dialog
@@ -288,7 +318,9 @@ Item {
     }
   }
 
-  ShellIpc {
+  // A plain IpcHandler: omarchy-shell reaches it through `qs ipc` on every
+  // Omarchy 4 shell (newer shells try their own socket first, then fall back).
+  IpcHandler {
     target: "io.github.talhacaglar.stretch-buddies"
 
     function now(): void { root.callNow(false) }

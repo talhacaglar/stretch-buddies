@@ -53,7 +53,7 @@ Settings live on the widget entry in `~/.config/omarchy/shell.json`:
 
 ## Requirements
 
-- Omarchy 4 (Omarchy Shell)
+- Omarchy 4.0.5 or newer, stable or dev channel (Omarchy Shell)
 - No external dependencies
 - License: MIT
 

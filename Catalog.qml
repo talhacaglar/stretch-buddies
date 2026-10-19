@@ -1,19 +1,37 @@
 import QtQuick
+import Quickshell
 import Quickshell.Io
-import qs.Commons as Commons
 
 // The plugin's strings from i18n/<code>.json, falling back to the base
 // language (es-MX to es) and then English. It follows the catalog format of
 // Commons.Translations, but `language` can be pinned in the widget settings
 // instead of always following Omarchy's language ("auto").
+//
+// It depends on nothing from qs.Commons, so it works on shells that predate
+// Commons.I18n (Omarchy 4.0.x): "auto" reads Omarchy's language file itself.
 QtObject {
   id: root
 
   property string language: "auto"
 
-  readonly property string code: language && language !== "auto" ? language : Commons.I18n.language
+  // Omarchy's language from Setup > Language; "en" when unset.
+  property string omarchyLanguage: "en"
+  readonly property string configHome: Quickshell.env("XDG_CONFIG_HOME") || (Quickshell.env("HOME") + "/.config")
+
+  readonly property string code: language && language !== "auto" ? language : omarchyLanguage
   readonly property string base: code.split("-")[0]
-  readonly property string directory: String(Qt.resolvedUrl("i18n")).replace(/^file:\/\//, "")
+  // Plugins load as file:// or qs:// URLs depending on the shell version.
+  readonly property string directory: String(Qt.resolvedUrl("i18n")).replace(/^[a-z]+:\/\//, "")
+
+  function validCode(value) {
+    var code = String(value || "").trim()
+    return /^[a-z]{2,3}(-[A-Za-z]{2})?$/.test(code) ? code : ""
+  }
+
+  // Whole numbers as plain digits; the shipped languages all write them so.
+  function formatNumber(n) {
+    return String(Math.round(Number(n) || 0))
+  }
 
   // Native names for the language picker; "auto" follows Omarchy.
   readonly property var languages: [
@@ -70,6 +88,15 @@ QtObject {
     var value = lookup(key)
     if (value && typeof value === "object") value = value[category(n)] || value.other
     return typeof value === "string" && value.length > 0 ? value : key
+  }
+
+  property FileView omarchyLanguageFile: FileView {
+    path: Quickshell.env("OMARCHY_LANGUAGE_FILE") || (root.configHome + "/omarchy/language")
+    watchChanges: true
+    printErrors: false
+    onFileChanged: reload()
+    onLoaded: root.omarchyLanguage = root.validCode(text()) || "en"
+    onLoadFailed: root.omarchyLanguage = "en"
   }
 
   property FileView englishFile: FileView {

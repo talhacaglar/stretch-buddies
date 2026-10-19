@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.talhacaglar.stretch-buddies",
   "name": "Stretch Buddies",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Talha Caglar",
   "license": "MIT",
   "description": "Stardew-style stretch buddies for Omarchy: Rigo the Rigatoni, Mochi the Cat or Porcini the Mushroom visits every 20 minutes and leads a one-minute neck and back stretch. Eight languages.",
