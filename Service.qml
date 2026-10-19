@@ -25,7 +25,7 @@ Item {
 
   property var shell: null
 
-  // Tuned from the bar widget's settings.
+  // Tuned from the widget's entry in shell.json (see applySettings).
   property int intervalMinutes: 20
   property int snoozeMinutes: 5
   property int exercisesPerBreak: 3
@@ -195,6 +195,46 @@ Item {
     })
   }
 
+  // Settings live on this plugin's widget entry in shell.json. The service
+  // reads them from there itself, so they apply after a shell restart (or an
+  // `omarchy bar set`) whichever part of the shell happens to load first.
+  readonly property string pluginId: "io.github.talhacaglar.stretch-buddies"
+
+  function settingsEntry(config) {
+    function find(list) {
+      if (!Array.isArray(list)) return null
+      for (var i = 0; i < list.length; i++)
+        if (list[i] && list[i].id === root.pluginId) return list[i]
+      return null
+    }
+    var layout = config && config.bar && config.bar.layout
+    if (layout && typeof layout === "object") {
+      for (var section in layout) {
+        var entry = find(layout[section])
+        if (entry) return entry
+      }
+    }
+    return find(config && config.plugins) || ({})
+  }
+
+  function applySettings(raw) {
+    var config
+    try {
+      config = JSON.parse(String(raw || "")) || ({})
+    } catch (e) {
+      return  // mid-write or hand-edited; the next change brings a whole file
+    }
+    var entry = settingsEntry(config)
+    function number(key, fallback, lo, hi) {
+      var n = parseInt(entry[key], 10)
+      return isNaN(n) ? fallback : Math.max(lo, Math.min(hi, n))
+    }
+    configure(number("intervalMinutes", 20, 5, 120), number("snoozeMinutes", 5, 1, 30),
+      number("exercisesPerBreak", 3, 1, 5))
+    setCharacter(entry.character || "rigo")
+    setLanguage(entry.language || "auto")
+  }
+
   function configure(interval, snooze, count) {
     if (interval > 0) intervalMinutes = Math.min(240, interval)
     if (snooze > 0) snoozeMinutes = Math.min(60, snooze)
@@ -212,6 +252,14 @@ Item {
 
   onIntervalMinutesChanged: {
     if (phase === "waiting" && !paused && !snoozed) dueAtMs = cycleStartMs + intervalMinutes * 60000
+  }
+
+  FileView {
+    path: Quickshell.env("HOME") + "/.config/omarchy/shell.json"
+    watchChanges: true
+    printErrors: false
+    onFileChanged: reload()
+    onLoaded: root.applySettings(text())
   }
 
   FileView {
@@ -338,9 +386,6 @@ Item {
     }
     function next(): void { root.next() }
     function dismiss(): void { root.dismiss() }
-    function configure(interval: int, snooze: int, count: int): void { root.configure(interval, snooze, count) }
-    function character(id: string): void { root.setCharacter(id) }
-    function language(code: string): void { root.setLanguage(code) }
     function status(): string { return root.status() }
   }
 }

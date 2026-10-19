@@ -65,12 +65,6 @@ Ui.BarWidget {
     Quickshell.execDetached(["bash", "-lc", 'exec omarchy-shell -q io.github.talhacaglar.stretch-buddies "$@"', "bash"].concat(args))
   }
 
-  function pushSettings() {
-    send(["configure", String(intervalMinutes), String(snoozeMinutes), String(exercisesPerBreak)])
-    send(["character", characterId])
-    send(["language", languageSetting])
-  }
-
   // Persist one setting into this widget's shell.json entry.
   function saveSetting(name, v) {
     var next = {}
@@ -82,8 +76,15 @@ Ui.BarWidget {
     var current = settings || {}
     for (var key in current) if (key !== "id") entry[key] = current[key]
     for (var o in next) entry[o] = next[o]
+    // The service picks the change up from shell.json.
     var api = bar ? bar.shell : null
-    if (api && typeof api.updateEntryInline === "function") api.updateEntryInline("io.github.talhacaglar.stretch-buddies", entry)
+    if (api && typeof api.updateEntryInline === "function") {
+      api.updateEntryInline("io.github.talhacaglar.stretch-buddies", entry)
+    } else {
+      var numeric = typeof v === "number"
+      Quickshell.execDetached(["bash", "-lc", 'exec omarchy-bar "$@"', "bash",
+        "set", "io.github.talhacaglar.stretch-buddies", name, String(v)].concat(numeric ? ["--json"] : []))
+    }
   }
 
   function nudgeInterval(delta) {
@@ -159,12 +160,6 @@ Ui.BarWidget {
     injectPanel()
     Qt.callLater(pruneOverrides)
   }
-  onIntervalMinutesChanged: pushSettings()
-  onSnoozeMinutesChanged: pushSettings()
-  onExercisesPerBreakChanged: pushSettings()
-  onCharacterIdChanged: pushSettings()
-  onLanguageSettingChanged: pushSettings()
-  Component.onCompleted: pushSettings()
 
   FileView {
     id: stateFile
