@@ -20,6 +20,15 @@ Stardew-style stretch breaks for Omarchy. Every 20 minutes a pixel-art buddy pop
 omarchy plugin add https://github.com/talhacaglar/stretch-buddies.git --enable
 ```
 
+## Update
+
+```bash
+omarchy plugin update io.github.talhacaglar.stretch-buddies
+omarchy restart shell
+```
+
+Don't skip the restart. The running shell hot-reloads the plugin as soon as the files change, but parts of it keep running the old code, so you can see errors from the previous version until the shell restarts.
+
 ## Remove
 
 ```bash
